@@ -324,8 +324,21 @@ cpp_class(CMaizeProject)
         # Get the collection of package managers
         CMaizeProject(GET "${self}" _cpm_pm_map package_managers)
 
+        # This doesn't work for some reason, returning FALSE even when the
+        # key is verified to be in the map with `cpp_serialize` and obviously
+        # `cpp_map(GET` retrieves the correct object since we are using it for
+        # the check now.
+        # # Check if a package manager of that type already exists
+        # cpp_map(HAS_KEY "${_cpm_pm_map}" "${_cpm_found}" "${_cpm_pm_type}")
+
         # Check if a package manager of that type already exists
-        cpp_map(HAS_KEY "${_cpm_pm_map}" "${_cpm_found}" "${_cpm_pm_type}")
+        cpp_map(GET "${_cpm_pm_map}" _cpm_pm_obj "${_cpm_pm_type}")
+        if("${_cpm_pm_obj}" STREQUAL "")
+            set("${_cpm_found}" FALSE)
+        else()
+            set("${_cpm_found}" TRUE)
+        endif()
+
         cpp_return("${_cpm_found}")
 
     endfunction()

@@ -96,6 +96,22 @@ function(cmaize_add_library _cal_tgt_name)
     )
     CMaizeProject(add_language "${_cal_project}" "${_cal_LANGUAGE}")
 
+    # Get the correct package manager
+    CMaizeProject(get_package_manager
+        "${_cal_project}" _cal_pm_obj "CMake"
+    )
+
+    # Register the target to the package manager to be found later in the
+    # project if necessary
+    ProjectSpecification(CTOR _ps_obj)
+    ProjectSpecification(SET "${_ps_obj}" name "${_cal_tgt_name}")    
+    CMakePackageManager(register_dependency
+        "${_cal_pm_obj}"
+        _cal_dep_obj
+        "${_ps_obj}"
+        BUILD_TARGET "${_cal_tgt_name}"
+    )
+
 endfunction()
 
 #[[[

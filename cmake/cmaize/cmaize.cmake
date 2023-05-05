@@ -4,6 +4,11 @@ include(cmaize/cmaize_impl)
 # has already been defined before CMaize was included
 cmaize_project("${PROJECT_NAME}")
 
+if("${PROJECT_NAME}" STREQUAL "${CMAKE_PROJECT_NAME}")
+    cpp_set_global(CMAIZE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+endif()
+# set(tmp_CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+
 # use, i.e. don't skip the full RPATH for the build tree
 set(CMAKE_SKIP_BUILD_RPATH FALSE)
 

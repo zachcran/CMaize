@@ -211,6 +211,11 @@ cpp_class(ProjectSpecification)
     cpp_member(__initialize ProjectSpecification)
     function("${__initialize}" self)
 
+        # TODO: Check if these attributes are blank before setting them to
+        #       a default. This allows users to create ProjectSpecification
+        #       objects with the KWARGS ctor and not have the attributes they
+        #       set immediately overwritten here.
+
         # Get the name from the most recent ``project()`` call
         ProjectSpecification(SET "${self}" name "${PROJECT_NAME}")
         

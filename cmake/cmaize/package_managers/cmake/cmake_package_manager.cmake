@@ -103,6 +103,9 @@ cpp_class(CMakePackageManager PackageManager)
     )
     function("${register_dependency}" self _rd_result _rd_proj_specs)
 
+        set(_rd_one_value_args URL)
+        cmake_parse_arguments(_rd "" "${_rd_one_value_args}" "" ${ARGN})
+
         ProjectSpecification(GET "${_rd_proj_specs}" _rd_pkg_name name)
         ProjectSpecification(GET "${_rd_proj_specs}" _rd_pkg_version version)
 
@@ -110,8 +113,14 @@ cpp_class(CMakePackageManager PackageManager)
         cpp_map(GET "${_rd_dependencies}" _rd_depend "${_rd_pkg_name}")
         if("${_rd_depend}" STREQUAL "")
             message(DEBUG "Registering dependency to package manager: ${_rd_pkg_name}")
-            # TODO: Actually make sure it's from GitHub
-            GitHubDependency(CTOR _rd_depend)
+            
+            # Search for "github.com" in the URL
+            string(FIND "${_rd_URL}" "github.com" _rd_github_found)
+            if(NOT _rd_github_found EQUAL -1)
+                GitHubDependency(CTOR _rd_depend)
+            else()
+                Dependency(CTOR _rd_depend)
+            endif()
 
             Dependency(init "${_rd_depend}" NAME "${_rd_pkg_name}" ${ARGN})
 
@@ -275,16 +284,19 @@ cpp_class(CMakePackageManager PackageManager)
         CMaizeProject(GET "${_ip_proj}" _ip_proj_name name)
         CMaizeProject(GET "${_ip_top_proj}" _ip_top_proj_name name)
 
-        set(_ip_destination_prefix ".")
-
+        cpp_get_global(_ip_cmaize_install_prefix CMAIZE_INSTALL_PREFIX)
         if("${_ip_proj_name}" STREQUAL "${_ip_top_proj_name}")
-            set(
-                CMAKE_INSTALL_PREFIX
-                "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/${_ip_pkg_name}/external"
-                CACHE PATH "" FORCE
-            )
+            if("${CMAKE_INSTALL_PREFIX}" STREQUAL "${_ip_cmaize_install_prefix}")
+                set(
+                    CMAKE_INSTALL_PREFIX
+                    "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/${_ip_pkg_name}/external"
+                    CACHE PATH "" FORCE
+                )
+            endif()
 
             set(_ip_destination_prefix "../../..")
+        else()
+            set(_ip_destination_prefix ".")
         endif()
 
         # Default to the only target exported in the package being one of the
@@ -483,7 +495,7 @@ cpp_class(CMakePackageManager PackageManager)
                     message(
                         DEBUG
                         "Skipping ${__gpc_tgt_deps_i}. It is a target defined "
-                        "by this project."
+                        "by this package."
                     )
                     continue()
                 endif()
@@ -491,12 +503,12 @@ cpp_class(CMakePackageManager PackageManager)
                 # Check if it is a dependency to be built and redirect the
                 # installation to the ``external`` directory
                 CMaizeProject(get_target
-                    "${__gpc_proj}" __gpc_tgt_deps_i_obj "${__gpc_tgt_deps_i}"
+                    "${__gpc_proj}" __gpc_tgt_deps_i_obj "${__gpc_tgt_deps_i}" ALL
                 )
 
                 CMakePackageManager(GET "${self}" __gpc_dependencies dependencies)
                 cpp_map(GET "${__gpc_dependencies}" __gpc_dep_obj "${__gpc_tgt_deps_i}")
-                
+
                 cpp_type_of(__gpc_dep_type "${__gpc_tgt_deps_i_obj}")
                 if("${__gpc_dep_type}" STREQUAL "buildtarget")
                     Dependency(GET
