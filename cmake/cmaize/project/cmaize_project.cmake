@@ -459,6 +459,9 @@ cpp_class(CMaizeProject)
 
     #[[[
     # Get a package manager of the requested type stored in the project.
+    # 
+    # If the project does not contain a package manager of the requested type,
+    # one will attempt to be created.
     #
     # :param _gpm_result: Return variable for the package manager object.
     # :type _gpm_result: PackageManager*
@@ -466,6 +469,8 @@ cpp_class(CMaizeProject)
     #                      ``CMAIZE_SUPPORTED_PACKAGE_MANAGERS`` for the list
     #                      of supported package manager types.
     # :type _gpm_pm_type: desc
+    # 
+    # :raises InvalidPackageManagerType: Invalid package manager type given.
     # 
     # :returns: Requested package manager object, or an empty string ("") if
     #           no package manager with the matching type was found.
@@ -479,10 +484,10 @@ cpp_class(CMaizeProject)
         CMaizeProject(check_package_manager
             "${self}" _gpm_found "${_gpm_pm_type}"
         )
+
         if(NOT _gpm_found)
-            # Package manager was not found
-            set("${_gpm_result}" "")
-            cpp_return("${_gpm_result}")
+            get_package_manager_instance(_gpm_pm "${_gpm_pm_type}")
+            CMaizeProject(add_package_manager "${self}" "${_gpm_pm}")
         endif()
 
         # Package manager was found, return it

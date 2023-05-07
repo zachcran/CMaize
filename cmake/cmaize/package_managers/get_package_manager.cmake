@@ -19,6 +19,8 @@ cpp_set_global(__CMAIZE_PACKAGE_MANAGER_MAP__ "${__pm_map}")
 #                    be found in the ``CMAIZE_SUPPORTED_PACKAGE_MANAGERS``
 #                    variable. This value is case-insensitive.
 # :type _gpmi_type: desc
+# 
+# :raises InvalidPackageManagerType: Invalid package manager type given.
 #
 # :returns: PackageManager instance
 #]]
