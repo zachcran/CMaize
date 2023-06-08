@@ -5,17 +5,15 @@ include_guard()
 # 
 # Extends the $ORIGIN behavior to Apple systems as well
 if(APPLE)
-    set(_base_point @loader_path)
+    list(APPEND CMAKE_INSTALL_RPATH
+        "@loader_path/external/tmp"
+    )
 else()
-    set(_base_point $ORIGIN)
+    list(APPEND CMAKE_INSTALL_RPATH
+        "$ORIGIN"
+        "$ORIGIN/external/tmp"
+    )
 endif()
-
-# Append $ORIGIN and the "external/tmp" directory where dependency
-# libraries are installed
-list(APPEND CMAKE_INSTALL_RPATH
-    "${_base_point}"
-    "${_base_point}/external/tmp"
-)
 
 # Add the paths which point to dependencies outside the build tree to the
 # install RPATH
