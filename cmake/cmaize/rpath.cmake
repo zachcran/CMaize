@@ -12,7 +12,10 @@ if(APPLE)
     endif()
     set(_base_point @loader_path)
 else()
-    set(_base_point $ORIGIN)
+    list(APPEND CMAKE_INSTALL_RPATH
+        "$ORIGIN"
+        "$ORIGIN/externalß/tmp"
+    )
 endif()
 
 # Append $ORIGIN and the "external/tmp" directory where dependency
