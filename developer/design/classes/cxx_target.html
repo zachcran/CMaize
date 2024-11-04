@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designing CMaize’s C++ Target Classes &mdash; CMaize 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Designing CMaize’s Python Target Classes" href="python_target.html" />
+    <link rel="prev" title="Designing CMaize’s Target Component" href="target.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../background/index.html">CMaize Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Developing CMaize</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">CMaize Design Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../overview.html">Overview of CMaize’s Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html">Frequently Asked Design Questions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_api/index.html">Design of CMaize’s User API</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">CMaize Class Design</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cmaize_project.html">Designing CMaize’s CMaizeProject Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="package_specification.html">Designing the Package Specification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="package_manager.html">Designing CMaize’s PackageManager Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="target.html">Designing CMaize’s Target Component</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Designing CMaize’s C++ Target Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_target.html">Designing CMaize’s Python Target Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmake_target.html">Designing CMaize’s CMake Target Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../assumptions.html">CMaize Assumptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../conventions.html">CMaize Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmaize_initialization.html">CMaize Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../new_package_manager.html">How to Create a New PackageManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design_notes/index.html">Design Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faqs.html">Developer FAQs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../declaring_targets/index.html">Declaring Build Targets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dependencies/index.html">Declaring Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography/bibliography.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CMaize</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Developing CMaize</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">CMaize Design Documentation</a></li>
+          <li class="breadcrumb-item"><a href="index.html">CMaize Class Design</a></li>
+      <li class="breadcrumb-item active">Designing CMaize’s C++ Target Classes</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/CMakePP/CMaize/edit/master/docs/source/developer/design/classes/cxx_target.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="designing-cmaize-s-c-target-classes">
+<span id="designing-cmaizes-cxx-target-classes"></span><h1>Designing CMaize’s C++ Target Classes<a class="headerlink" href="#designing-cmaize-s-c-target-classes" title="Link to this heading"></a></h1>
+<p><a class="reference internal" href="target.html#designing-cmaizes-target-component"><span class="std std-ref">Designing CMaize’s Target Component</span></a> described the design of the language
+agnostic pieces of CMaize’s Target component. This page describes the design
+of the Target component specific to C++ targets.</p>
+<section id="what-are-the-c-target-classes">
+<h2>What are the C++ Target Classes?<a class="headerlink" href="#what-are-the-c-target-classes" title="Link to this heading"></a></h2>
+<p>As the name suggests, the C++ target classes are the classes in CMaize’s Target
+component which describe C++ targets including libraries and executables.</p>
+</section>
+<section id="why-do-we-need-c-target-classes">
+<h2>Why Do We Need C++ Target Classes?<a class="headerlink" href="#why-do-we-need-c-target-classes" title="Link to this heading"></a></h2>
+<p>CMaize’s C++ target classes will provide an object-oriented representation of
+CMake’s native C++ targets. C++ target objects are needed to ensure that C++
+targets can be treated in a manner that is compatible with CMaize’s target
+support for coding languages not supported by traditional CMake. CMaize’s target
+classes also help extract away much of the repetition resulting from using
+CMake’s C++ targets directly.</p>
+</section>
+<section id="c-target-considerations">
+<h2>C++ Target Considerations<a class="headerlink" href="#c-target-considerations" title="Link to this heading"></a></h2>
+<p>To motivate the considerations for the C++ Target classes consider the
+traditional CMake workflow for setting up C++ targets:</p>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="c"># Step 1: Declare the target for the library</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="s">...</span><span class="p">)</span>
+
+<span class="c"># Step 2: Set compiler features needed by the target</span>
+<span class="nb">target_compile_features</span><span class="p">(</span><span class="s">...</span><span class="p">)</span>
+
+<span class="c"># Step 3: Set up the include directories for the target. This includes the</span>
+<span class="c">#         include paths needed to build the target and the include paths the</span>
+<span class="c">#         target will need after it has been installed.</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">...</span><span class="p">)</span>
+
+<span class="c"># Step 4: Ensure that the header files defining the public API of the target</span>
+<span class="c">#         will be installed.</span>
+<span class="nb">install</span><span class="p">(</span><span class="s">...</span><span class="p">)</span>
+
+<span class="c"># Step 5: Register the dependencies of the target</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">...</span><span class="p">)</span>
+
+<span class="c"># Step 6: Add source files to the target (if there are any)</span>
+<span class="nb">target_source</span><span class="p">(</span><span class="s">...</span><span class="p">)</span>
+
+<span class="c"># Step 7: Decide where to install the target and configure the packaging</span>
+<span class="c">#         file for finding the target</span>
+<span class="nb">install</span><span class="p">(</span><span class="s">...</span><span class="p">)</span>
+
+<span class="c"># Step 8: Install the packaging file.</span>
+<span class="nb">install</span><span class="p">(</span><span class="s">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above workflow is for C++ libraries, but is nearly identical to that of
+an executable except that when building an executable step 1 calls
+<code class="docutils literal notranslate"><span class="pre">add_executable</span></code> instead of <code class="docutils literal notranslate"><span class="pre">add_library</span></code>.</p>
+<p>This leads to the following considerations:</p>
+<dl class="simple" id="ct-cmake-target-creation">
+<dt>CMake target creation</dt><dd><p><a class="reference internal" href="target.html#designing-cmaizes-target-component"><span class="std std-ref">Designing CMaize’s Target Component</span></a> called for each CMaize target to
+have an underlying CMake target. The various C++ target classes will be
+responsible for actually creating and initializing those targets.</p>
+</dd>
+</dl>
+<dl class="simple" id="ct-cxx-libraries-and-executables">
+<dt>C++ libraries and executables</dt><dd><p>Software written in C++ is comprised of two types of objects: libraries and
+executables. The C++ target classes must be able to represent executables
+and libraries.</p>
+</dd>
+</dl>
+<dl class="simple" id="ct-header-only-libraries">
+<dt>header-only libraries</dt><dd><p>Many modern C++ libraries are header-only. Conceptually, such libraries
+follow the same workflow, but skip step 6 (adding source files to the
+target). Unfortunately, CMake requires header-only libraries to provide
+different inputs for a number of the steps (in the above code snippet, the
+actual differences are part of the ellipses and are thus not shown). The
+C++ target classes should abstract away the differences between setting-up
+header-only and compiled libraries.</p>
+</dd>
+</dl>
+<dl class="simple" id="ct-abstract-base">
+<dt>abstract base</dt><dd><p>As the above code snippet showed, the process for configuring and installing
+a C++ library is nearly identical to that of configuring and installing a
+C++ executable. The CMaize objects should factor out the common routines and
+abstract away the differences. From an object-oriented design standpoint this
+suggests a common abstract base class.</p>
+</dd>
+</dl>
+<dl class="simple" id="ct-install-location">
+<dt>install location</dt><dd><p>CMake is great at managing targets during the build process; however,
+CMake requires the package maintainer to more or less manually configure how
+the target will behave after installation. This includes ensuring the package
+can still find all of its files and dependencies. This process is facilitated
+by having each target know where its install location will be.</p>
+</dd>
+</dl>
+</section>
+<section id="c-target-design">
+<h2>C++ Target Design<a class="headerlink" href="#c-target-design" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<span id="fig-cxx-target-design"></span><img alt="../../../_images/cxx_targets.png" src="../../../_images/cxx_targets.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The classes implementing CMaize’s target component for C++ targets.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#fig-cxx-target-design"><span class="std std-numref">Fig. 9</span></a> is a class diagram for the classes responsible
+for modeling C++ targets. Following from consideration <a class="reference internal" href="#ct-abstract-base"><span class="std std-ref">abstract base</span></a>
+we have introduced the <code class="docutils literal notranslate"><span class="pre">CXXTarget</span></code> class to factor out the common
+infrastructure. The <code class="docutils literal notranslate"><span class="pre">CXXTarget</span></code> class implements the <code class="docutils literal notranslate"><span class="pre">make_target</span></code> function
+defined by the <code class="docutils literal notranslate"><span class="pre">BuildTarget</span></code> class in terms of a series of virtual protected
+member functions, i.e, <code class="docutils literal notranslate"><span class="pre">_create_target</span></code>, <code class="docutils literal notranslate"><span class="pre">_set_compile_features</span></code>,
+<code class="docutils literal notranslate"><span class="pre">_set_include_directories</span></code>, <code class="docutils literal notranslate"><span class="pre">_set_link_libraries</span></code>, and <code class="docutils literal notranslate"><span class="pre">_set_sources</span></code>.</p>
+<p>Following from the <a class="reference internal" href="#ct-cxx-libraries-and-executables"><span class="std std-ref">C++ libraries and executables</span></a> consideration, we
+derive from <code class="docutils literal notranslate"><span class="pre">CXXTarget</span></code> the <code class="docutils literal notranslate"><span class="pre">CXXExecutable</span></code> and <code class="docutils literal notranslate"><span class="pre">CXXLibrary</span></code> classes.
+These classes simply override <code class="docutils literal notranslate"><span class="pre">_create_target</span></code> so that it calls
+<code class="docutils literal notranslate"><span class="pre">add_executable</span></code> or <code class="docutils literal notranslate"><span class="pre">add_library</span></code>, respectively. Finally, to address the
+<a class="reference internal" href="#ct-header-only-libraries"><span class="std std-ref">header-only libraries</span></a> consideration we derive the
+<code class="docutils literal notranslate"><span class="pre">CXXInterfaceLibrary</span></code> class from the <code class="docutils literal notranslate"><span class="pre">CXXLibrary</span></code> class.</p>
+<section id="proposed-api">
+<h3>Proposed API<a class="headerlink" href="#proposed-api" title="Link to this heading"></a></h3>
+<p>To create a C++ library:</p>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">include_files</span><span class="w"> </span><span class="s">...</span><span class="p">)</span><span class="w"> </span><span class="c"># Somehow get a list of header files</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">source_files</span><span class="w"> </span><span class="s">...</span><span class="p">)</span><span class="w">  </span><span class="c"># Somehow get a list of source files</span>
+
+<span class="c"># Create a library called &quot;my_first_cmaize_cxx_library&quot; and assign it to the</span>
+<span class="c"># variable cxx_library</span>
+<span class="nb">CXXLibrary</span><span class="p">(</span><span class="s">CTOR</span><span class="w"> </span><span class="s">cxx_library</span><span class="w"> </span><span class="s2">&quot;my_first_cmaize_cxx_library&quot;</span><span class="p">)</span>
+
+<span class="c"># Actually create the CMake target powering the library</span>
+<span class="nb">CXXLibrary</span><span class="p">(</span><span class="s">make_target</span>
+<span class="w">    </span><span class="s2">&quot;${cxx_library}&quot;</span>
+<span class="w">    </span><span class="s">INCLUDES</span><span class="w"> </span><span class="s2">&quot;${include_files}&quot;</span>
+<span class="w">    </span><span class="s">SOURCES</span><span class="w"> </span><span class="s2">&quot;${source_files}&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><a class="reference internal" href="#ct-cmake-target-creation"><span class="std std-ref">CMake target creation</span></a></dt><dd><p>The literal CMake targets are created by the derived classes when overriding
+<code class="docutils literal notranslate"><span class="pre">CXXTarget</span></code>’s <code class="docutils literal notranslate"><span class="pre">_create_target</span></code> function.</p>
+</dd>
+<dt><a class="reference internal" href="#ct-cxx-libraries-and-executables"><span class="std std-ref">C++ libraries and executables</span></a></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">CXXLibrary</span></code> and <code class="docutils literal notranslate"><span class="pre">CXXExecutable</span></code> classes respectively model a C++
+library and a C++ executable.</p>
+</dd>
+<dt><a class="reference internal" href="#ct-header-only-libraries"><span class="std std-ref">header-only libraries</span></a></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">CXXInterfaceLibrary</span></code> class derives from the <code class="docutils literal notranslate"><span class="pre">CXXLibrary</span></code> class and
+modifies the workflows so that the underlying CMake calls are consistent with
+declaring a header-only library.</p>
+</dd>
+<dt><a class="reference internal" href="#ct-abstract-base"><span class="std std-ref">abstract base</span></a></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">CXXTarget</span></code> class has been introduced to factor out common
+infrastructure.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="target.html" class="btn btn-neutral float-left" title="Designing CMaize’s Target Component" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python_target.html" class="btn btn-neutral float-right" title="Designing CMaize’s Python Target Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, CMakePP Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

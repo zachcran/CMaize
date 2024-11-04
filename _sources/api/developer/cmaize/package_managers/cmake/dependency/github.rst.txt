@@ -8,7 +8,7 @@ cmaize.package_managers/cmake/dependency/github
 
 .. py:class:: GitHubDependency
 
-   Bases: :class:`Dependency`
+   Bases: :class:`RemoteURLDependency`
    
    
    **Methods**

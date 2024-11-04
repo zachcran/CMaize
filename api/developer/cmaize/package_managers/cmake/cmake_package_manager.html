@@ -1,25 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cmaize.package_managers/cmake/cmake_package_manager &mdash; CMaize 1.0.0alpha documentation</title>
-      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>cmaize.package_managers/cmake/cmake_package_manager &mdash; CMaize 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../../_static/documentation_options.js?v=d4e7da7a"></script>
-        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="cmaize.package_managers/get_package_manager" href="../get_package_manager.html" />
+    <link rel="next" title="cmaize.package_managers/pip" href="../pip/index.html" />
     <link rel="prev" title="cmaize.package_managers/cmake/cmake" href="cmake.html" /> 
 </head>
 
@@ -31,12 +31,10 @@
 
           
           
-          <a href="../../../../../index.html" class="icon icon-home">
-            CMaize
+          <a href="../../../../../index.html">
+            
+              <img src="../../../../../_static/logo.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -48,12 +46,13 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../background/index.html">CMaize Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../cpp/index.html">Current Developer API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Refactored Developer API (in progress)</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html">cmaize.package_managers</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="index.html">cmaize.package_managers/cmake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../pip/index.html">cmaize.package_managers/pip</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../get_package_manager.html">cmaize.package_managers/get_package_manager</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../package_manager.html">cmaize.package_managers/package_manager</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../package_managers.html">cmaize.package_managers/package_managers</a></li>
@@ -74,6 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../developer/index.html">Developing CMaize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../declaring_targets/index.html">Declaring Build Targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../dependencies/index.html">Declaring Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../bibliography/bibliography.html">References</a></li>
 </ul>
 
         </div>
@@ -96,7 +96,7 @@
           <li class="breadcrumb-item"><a href="index.html">cmaize.package_managers/cmake</a></li>
       <li class="breadcrumb-item active">cmaize.package_managers/cmake/cmake_package_manager</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../../_sources/api/developer/cmaize/package_managers/cmake/cmake_package_manager.rst.txt" rel="nofollow"> View page source</a>
+              <a href="https://github.com/CMakePP/CMaize/edit/master/docs/source/api/developer/cmaize/package_managers/cmake/cmake_package_manager.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -151,7 +151,7 @@ for future searching and building.</p>
 <li><p><strong>_rd_name</strong> (<em>desc</em>) – Name of the dependency.</p></li>
 <li><p><strong>**kwargs</strong> – <p>Additional keyword arguments may be necessary.</p>
 </p></li>
-<li><p><strong>_rd_proj_specs</strong> (<a class="reference internal" href="../../project/package_specification.html#cmaize.project-package_specification.PackageSpecification" title="cmaize.project/package_specification.PackageSpecification"><em>PackageSpecification</em></a>) – </p></li>
+<li><p><strong>_rd_proj_specs</strong> (<a class="reference internal" href="../../project/package_specification.html#cmaize.project-package_specification.PackageSpecification" title="cmaize.project/package_specification.PackageSpecification"><em>PackageSpecification</em></a>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -229,7 +229,7 @@ unimplemented and should not yet be used.</p>
 <li><p><strong>_ip_target</strong> (<em>BuildTarget*</em>) – CMaizeTarget to install</p></li>
 <li><p><strong>**kwargs</strong> – <p>Additional keyword arguments may be necessary.</p>
 </p></li>
-<li><p><strong>_ip_pkg_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – </p></li>
+<li><p><strong>_ip_pkg_name</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
@@ -259,8 +259,8 @@ will also attempt to find dependencies for the package.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<a class="reference internal" href="#cmaize.package_managers-cmake-cmake_package_manager.CMakePackageManager" title="cmaize.package_managers/cmake/cmake_package_manager.CMakePackageManager"><em>CMakePackageManager</em></a>) – CMakePackageManager object</p></li>
-<li><p><strong>__gpc_output_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Identifying name of target to install.</p></li>
-<li><p><strong>__gpc_pkg_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Name of the package this Config file is for.</p></li>
+<li><p><strong>__gpc_output_file</strong> (<em>str</em>) – Identifying name of target to install.</p></li>
+<li><p><strong>__gpc_pkg_name</strong> (<em>str</em>) – Name of the package this Config file is for.</p></li>
 <li><p><strong>*args</strong> – <p>List of targets to include in this package. Only provide
 targets that are created by this project.</p>
 </p></li>
@@ -278,11 +278,11 @@ location.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<a class="reference internal" href="#cmaize.package_managers-cmake-cmake_package_manager.CMakePackageManager" title="cmaize.package_managers/cmake/cmake_package_manager.CMakePackageManager"><em>CMakePackageManager</em></a>) – CMakePackageManager object</p></li>
-<li><p><strong>__gtc_target_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Identifying name of target to install.</p></li>
-<li><p><strong>__gtc_namespace</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Namespace for the target.</p></li>
+<li><p><strong>__gtc_target_name</strong> (<em>str</em>) – Identifying name of target to install.</p></li>
+<li><p><strong>__gtc_namespace</strong> (<em>str</em>) – Namespace for the target.</p></li>
 <li><p><strong>__gtc_config_file</strong> (<em>path</em>) – Path to the config file.</p></li>
 <li><p><strong>__gtc_install_dest</strong> (<em>path</em>) – Path to the installation destination.</p></li>
-<li><p><strong>__gtc_tgt_obj</strong> (<a class="reference internal" href="../../targets/build_target.html#cmaize.targets-build_target.BuildTarget" title="cmaize.targets/build_target.BuildTarget"><em>BuildTarget</em></a>) – </p></li>
+<li><p><strong>__gtc_tgt_obj</strong> (<a class="reference internal" href="../../targets/build_target.html#cmaize.targets-build_target.BuildTarget" title="cmaize.targets/build_target.BuildTarget"><em>BuildTarget</em></a>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -313,6 +313,30 @@ is empty.</p>
 is empty.</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cmaize.package_managers-cmake-cmake_package_manager.CMakePackageManager.library_prefix">
+<span class="sig-name descname"><span class="pre">library_prefix</span></span><a class="headerlink" href="#cmaize.package_managers-cmake-cmake_package_manager.CMakePackageManager.library_prefix" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>path</p>
+</dd>
+</dl>
+<p>Prefix for libraries. Will default to <code class="docutils literal notranslate"><span class="pre">lib</span></code> if no language is specified
+otherwise the value will be obtained from GNUInstallDirs.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cmaize.package_managers-cmake-cmake_package_manager.CMakePackageManager.binary_prefix">
+<span class="sig-name descname"><span class="pre">binary_prefix</span></span><a class="headerlink" href="#cmaize.package_managers-cmake-cmake_package_manager.CMakePackageManager.binary_prefix" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>path</p>
+</dd>
+</dl>
+<p>Prefix for executables. Will default to <code class="docutils literal notranslate"><span class="pre">bin</span></code> if no language is
+specified otherwise the value will be otbtained from GNUInstallDirs.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
@@ -329,7 +353,7 @@ end of the file defining the PackageManager class.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="cmake.html" class="btn btn-neutral float-left" title="cmaize.package_managers/cmake/cmake" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../get_package_manager.html" class="btn btn-neutral float-right" title="cmaize.package_managers/get_package_manager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../pip/index.html" class="btn btn-neutral float-right" title="cmaize.package_managers/pip" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

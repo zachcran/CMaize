@@ -7,6 +7,7 @@ cmaize.package_managers/cmake
    :maxdepth: 2
 
    dependency/index.rst
+   impl_/index.rst
    cmake
    cmake_package_manager
 

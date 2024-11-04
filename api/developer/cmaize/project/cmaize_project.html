@@ -1,26 +1,26 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cmaize.project/cmaize_project &mdash; CMaize 1.0.0alpha documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>cmaize.project/cmaize_project &mdash; CMaize 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../_static/documentation_options.js?v=d4e7da7a"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="cmaize.project/package_specification" href="package_specification.html" />
-    <link rel="prev" title="cmaize.project" href="index.html" /> 
+    <link rel="prev" title="cmaize.project/impl_/impl_" href="impl_/impl_.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -31,12 +31,10 @@
 
           
           
-          <a href="../../../../index.html" class="icon icon-home">
-            CMaize
+          <a href="../../../../index.html">
+            
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -48,12 +46,13 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../background/index.html">CMaize Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../cpp/index.html">Current Developer API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Refactored Developer API (in progress)</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../package_managers/index.html">cmaize.package_managers</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">cmaize.project</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="impl_/index.html">cmaize.project/impl_</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">cmaize.project/cmaize_project</a></li>
 <li class="toctree-l4"><a class="reference internal" href="package_specification.html">cmaize.project/package_specification</a></li>
 <li class="toctree-l4"><a class="reference internal" href="projects.html">cmaize.project/projects</a></li>
@@ -73,6 +72,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developing CMaize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../declaring_targets/index.html">Declaring Build Targets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dependencies/index.html">Declaring Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bibliography/bibliography.html">References</a></li>
 </ul>
 
         </div>
@@ -94,7 +94,7 @@
           <li class="breadcrumb-item"><a href="index.html">cmaize.project</a></li>
       <li class="breadcrumb-item active">cmaize.project/cmaize_project</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/api/developer/cmaize/project/cmaize_project.rst.txt" rel="nofollow"> View page source</a>
+              <a href="https://github.com/CMakePP/CMaize/edit/master/docs/source/api/developer/cmaize/project/cmaize_project.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -137,24 +137,6 @@ named in <code class="docutils literal notranslate"><span class="pre">PROJECT_NA
 </dd>
 <dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>VERSION</strong> (<em>desc</em>) –
-Version string of non-negative integers of the form
-<code class="docutils literal notranslate"><span class="pre">&lt;major&gt;[.&lt;minor&gt;[.&lt;patch&gt;[.&lt;tweak&gt;]</span> <span class="pre">]</span> <span class="pre">]</span></code>. Populates the
-version attributes of the <code class="docutils literal notranslate"><span class="pre">PackageSpecification</span></code>. Parallels
-the <code class="docutils literal notranslate"><span class="pre">VERSION</span> <span class="pre">&lt;version&gt;</span></code> keyword for CMake <code class="docutils literal notranslate"><span class="pre">project()</span></code>
-(<a class="reference external" href="https://cmake.org/cmake/help/latest/command/project.html">link</a>), and the value is passed to
-a CMake <code class="docutils literal notranslate"><span class="pre">project()</span></code> call if the project does not exist yet.</p></li>
-<li><p><strong>DESCRIPTION</strong> (<em>desc</em>) –
-Description of the project. Parallels the
-<code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span> <span class="pre">&lt;project-description-string&gt;</span></code> keyword for
-CMake <code class="docutils literal notranslate"><span class="pre">project()</span></code> (<a class="reference external" href="https://cmake.org/cmake/help/latest/command/project.html">link</a>), and the value
-is passed to a CMake <code class="docutils literal notranslate"><span class="pre">project()</span></code> call if the project does not
-exist yet.</p></li>
-<li><p><strong>HOMEPAGE_URL</strong> (<em>desc</em>) –
-Homepage URL for the project. Parallels the
-<code class="docutils literal notranslate"><span class="pre">HOMEPAGE_URL</span> <span class="pre">&lt;url-string&gt;</span></code> keyword for CMake <code class="docutils literal notranslate"><span class="pre">project()</span></code>
-(<a class="reference external" href="https://cmake.org/cmake/help/latest/command/project.html">link</a>), and the value is passed to
-a CMake <code class="docutils literal notranslate"><span class="pre">project()</span></code> call if the project does not exist yet.</p></li>
 <li><p><strong>LANGUAGES</strong> (<em>list[desc]</em>) –
 Languages supported by the project. These languages are passed to
 the LANGUAGES keyword of the CMake <code class="docutils literal notranslate"><span class="pre">project()</span></code> call if the project
@@ -185,6 +167,71 @@ given project name.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<a class="reference internal" href="#cmaize.project-cmaize_project.CMaizeProject" title="cmaize.project/cmaize_project.CMaizeProject"><em>CMaizeProject</em></a>) – CMaizeProject object.</p></li>
 <li><p><strong>_al_language</strong> (<em>desc</em>) – Language to be added.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cmaize.project-cmaize_project.CMaizeProject.set_config_option">
+<span class="sig-name descname"><span class="pre">set_config_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_sco_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_sco_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject.set_config_option" title="Link to this definition"></a></dt>
+<dd><p>Sets the value of the specified configuration option</p>
+<p>This method is a convience function for retrieving the
+PackageSpecification associated with self and then setting the value of
+the specified configuration option.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#cmaize.project-cmaize_project.CMaizeProject" title="cmaize.project/cmaize_project.CMaizeProject"><em>CMaizeProject</em></a>) – The current <code class="docutils literal notranslate"><span class="pre">CMaizeProject</span></code> object.</p></li>
+<li><p><strong>name</strong> (<em>desc</em>) – The key for the configuration option.</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – The value to set the configuration option to.</p></li>
+<li><p><strong>_sco_name</strong> (<em>desc</em>)</p></li>
+<li><p><strong>_sco_value</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cmaize.project-cmaize_project.CMaizeProject.get_config_option">
+<span class="sig-name descname"><span class="pre">get_config_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_gco_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_gco_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject.get_config_option" title="Link to this definition"></a></dt>
+<dd><p>Gets the value of a configuration option.</p>
+<p>This method is a convenience function for retrieving the
+PackageSpecification associated with self and then getting the value of
+the specificed configuration option.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#cmaize.project-cmaize_project.CMaizeProject" title="cmaize.project/cmaize_project.CMaizeProject"><em>CMaizeProject</em></a>) – The current <code class="docutils literal notranslate"><span class="pre">CMaizeProject</span></code> object.</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – The variable which will hold the option’s value</p></li>
+<li><p><strong>name</strong> (<em>desc</em>) – The configuration option whose value has been requested.</p></li>
+<li><p><strong>_gco_value</strong> (<em>str</em>)</p></li>
+<li><p><strong>_gco_name</strong> (<em>desc</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If <code class="docutils literal notranslate"><span class="pre">name</span></code> is not a configuration option which has been
+added via <code class="docutils literal notranslate"><span class="pre">set_config_option</span></code>. Strong throw guarantee.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cmaize.project-cmaize_project.CMaizeProject.has_config_option">
+<span class="sig-name descname"><span class="pre">has_config_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_hco_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_hco_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject.has_config_option" title="Link to this definition"></a></dt>
+<dd><p>Determines if a configuration option was added to self.</p>
+<p>This method is a convenience function for getting the internal
+PackageSpecification and seeinf if the user set a specified key. If the
+user set <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">result</span></code> will be set to true; otherwise, <code class="docutils literal notranslate"><span class="pre">result</span></code>
+will be false.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#cmaize.project-cmaize_project.CMaizeProject" title="cmaize.project/cmaize_project.CMaizeProject"><em>CMaizeProject</em></a>) – <code class="docutils literal notranslate"><span class="pre">CMaizeProject</span></code> object.</p></li>
+<li><p><strong>result</strong> (<em>bool*</em>) – The identifier to assign the result to.</p></li>
+<li><p><strong>name</strong> (<em>desc</em>) – The name of the configuration option</p></li>
+<li><p><strong>_hco_result</strong> (<em>bool*</em>)</p></li>
+<li><p><strong>_hco_name</strong> (<em>desc</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -235,40 +282,6 @@ them. This keyword argument is <strong>required</strong>.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="cmaize.project-cmaize_project.CMaizeProject._add_target">
-<span class="sig-name descname"><span class="pre">_add_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__at_target</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject._add_target" title="Link to this definition"></a></dt>
-<dd><p>Add a target to the project. Duplicate objects will not be added.</p>
-<p>This internal implementation exists so a required keyword argument is
-not part of the public interface, as well as to handle both <code class="docutils literal notranslate"><span class="pre">desc</span></code> and
-<code class="docutils literal notranslate"><span class="pre">target</span></code> types. Both types are effectively strings representing target
-names in this algorithm and can be treated equivalently, but cannot be
-typecast to each other by CMakePPLang. The CMakePPLang type checking
-is bypassed through the aforementioned required keyword argument for
-the target name, essentially combining the two types.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>__at_target</strong> (<a class="reference internal" href="../targets/cmaize_target.html#cmaize.targets-cmaize_target.CMaizeTarget" title="cmaize.targets/cmaize_target.CMaizeTarget"><em>CMaizeTarget</em></a>) – CMaizeTarget object to be added.</p></li>
-<li><p><strong>NAME</strong> (<em>desc</em><em> or </em><em>target</em>) – Required keyword argument. See description below.</p></li>
-<li><p><strong>**kwargs</strong> – <p>Additional keyword arguments may be necessary.</p>
-</p></li>
-</ul>
-</dd>
-<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>INSTALLED</strong> (<em>bool</em>) –
-Flag to indicate that the target being added is already installed
-on the system.</p></li>
-<li><p><strong>NAME</strong> (<em>desc</em> or <em>target</em>) –
-Identifying name for the target. This can match name of either the
-CMake target or CMaizeTarget object, but is required to do match
-them. This keyword argument is <strong>required</strong>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="cmaize.project-cmaize_project.CMaizeProject.check_package_manager">
 <span class="sig-name descname"><span class="pre">check_package_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_cpm_found</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cpm_pm_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject.check_package_manager" title="Link to this definition"></a></dt>
 <dd><p>Checks if a package manager with the same type is already added to
@@ -279,14 +292,14 @@ this project.</p>
 <li><p><strong>self</strong> (<a class="reference internal" href="#cmaize.project-cmaize_project.CMaizeProject" title="cmaize.project/cmaize_project.CMaizeProject"><em>CMaizeProject</em></a>) – CMaizeProject object.</p></li>
 <li><p><strong>_cpm_found</strong> (<em>bool*</em>) – Return variable for if the package manager was found.</p></li>
 <li><p><strong>_cpm_tgt</strong> (<em>Package manager</em>) – Package manager to search for.</p></li>
-<li><p><strong>_cpm_pm_type</strong> (<em>desc</em>) – </p></li>
+<li><p><strong>_cpm_pm_type</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Package manager found (TRUE) or not (FALSE).</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -322,49 +335,7 @@ project. This keyword argument is <strong>required</strong>.</p></li>
 <dd class="field-odd"><p>CMaizeTarget found (TRUE) or not (FALSE).</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cmaize.project-cmaize_project.CMaizeProject._check_target">
-<span class="sig-name descname"><span class="pre">_check_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">__ct_found</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject._check_target" title="Link to this definition"></a></dt>
-<dd><p>Checks if a target with the same name is already added to this project.
-This defaults to build targets.</p>
-<p>This internal implementation exists so a required keyword argument is
-not part of the public interface, as well as to handle both <code class="docutils literal notranslate"><span class="pre">desc</span></code> and
-<code class="docutils literal notranslate"><span class="pre">target</span></code> types. Both types are effectively strings representing target
-names in this algorithm and can be treated equivalently, but cannot be
-typecast to each other by CMakePPLang. The CMakePPLang type checking
-is bypassed through the aforementioned required keyword argument for
-the target name, essentially combining the two types.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>__ct_found</strong> (<em>bool*</em>) – Return variable for whether the target was found.</p></li>
-<li><p><strong>NAME</strong> (<em>desc</em><em> or </em><em>target</em>) – Required keyword argument. See description below.</p></li>
-<li><p><strong>**kwargs</strong> – <p>Additional keyword arguments may be necessary.</p>
-</p></li>
-</ul>
-</dd>
-<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>INSTALLED</strong> (<em>bool</em>) –
-Flag to indicate that the installed targets should be checked.</p></li>
-<li><p><strong>ALL</strong> (<em>bool</em>) –
-Flag to indicate that both the build and installed targets should
-be checked.</p></li>
-<li><p><strong>NAME</strong> (<em>desc</em> or <em>target</em>) –
-Identifying name for a target contained in the current Cmaize
-project. This keyword argument is <strong>required</strong>.</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>CMaizeTarget found (TRUE) or not (FALSE).</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+<dd class="field-even"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -493,7 +464,7 @@ no target with the matching type was found.</p>
 <span class="sig-name descname"><span class="pre">languages</span></span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject.languages" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[desc]</p>
+<dd class="field-odd"><p>list[desc]</p>
 </dd>
 </dl>
 <p>Languages used in the project. Defaults to an empty list.</p>
@@ -504,7 +475,7 @@ no target with the matching type was found.</p>
 <span class="sig-name descname"><span class="pre">package_managers</span></span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject.package_managers" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference internal" href="../package_managers/package_manager.html#cmaize.package_managers-package_manager.PackageManager" title="cmaize.package_managers/package_manager.PackageManager">PackageManager</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../package_managers/package_manager.html#cmaize.package_managers-package_manager.PackageManager" title="cmaize.package_managers/package_manager.PackageManager">PackageManager</a>]</p>
 </dd>
 </dl>
 <p>Package managers used by the project.</p>
@@ -515,7 +486,7 @@ no target with the matching type was found.</p>
 <span class="sig-name descname"><span class="pre">build_targets</span></span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject.build_targets" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference internal" href="../targets/build_target.html#cmaize.targets-build_target.BuildTarget" title="cmaize.targets/build_target.BuildTarget">BuildTarget</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../targets/build_target.html#cmaize.targets-build_target.BuildTarget" title="cmaize.targets/build_target.BuildTarget">BuildTarget</a>]</p>
 </dd>
 </dl>
 <p>Targets that will be built as part of the project.</p>
@@ -526,7 +497,7 @@ no target with the matching type was found.</p>
 <span class="sig-name descname"><span class="pre">installed_targets</span></span><a class="headerlink" href="#cmaize.project-cmaize_project.CMaizeProject.installed_targets" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference internal" href="../targets/installed_target.html#cmaize.targets-installed_target.InstalledTarget" title="cmaize.targets/installed_target.InstalledTarget">InstalledTarget</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../targets/installed_target.html#cmaize.targets-installed_target.InstalledTarget" title="cmaize.targets/installed_target.InstalledTarget">InstalledTarget</a>]</p>
 </dd>
 </dl>
 <p>Targets the project uses that are already installed on the system.</p>
@@ -540,7 +511,7 @@ no target with the matching type was found.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="cmaize.project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="impl_/impl_.html" class="btn btn-neutral float-left" title="cmaize.project/impl_/impl_" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="package_specification.html" class="btn btn-neutral float-right" title="cmaize.project/package_specification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
